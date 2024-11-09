@@ -95,6 +95,9 @@ import openfl.display.Sprite;
 
 import vlc.MP4Handler;
 
+import flixel.addons.display.FlxTiledSprite;
+import flixel.graphics.frames.FlxAtlasFrames;
+
 using StringTools;
 
 typedef StageJson =
@@ -565,7 +568,21 @@ class PlayState extends MusicBeatState
 	public static var allNotes:Int = 0;
 	public static var isHighscore:Bool = false;
 
+	var MIN_BLINK_DELAY:Int = 3;
+	var MAX_BLINK_DELAY:Int = 7;
+	var VULTURE_THRESHOLD:Float = 0.5;
+	var blinkCountdown:Int = 3;
 	
+	var scrollingSky:BGSprite;
+	var phillyTraffic:BGSprite;
+
+	var phillyCars:BGSprite;
+	var phillyCars2:BGSprite;
+
+	var picoFade:FlxSprite;
+	var spraycanPile:BGSprite;
+
+	var darkenable:Array<FlxSprite> = [];
 
 	override public function create()
 	{
@@ -1983,6 +2000,72 @@ class PlayState extends MusicBeatState
 				
 				
 				var sign:BGSprite = new BGSprite('sign', 0, 350, Paths.image('backgrounds/farm/sign', 'shared'), null);
+				
+
+				var variantColor:FlxColor = getBackgroundColor(stageName);
+				
+				flatgrass.color = variantColor;
+				hills.color = variantColor;
+				farmHouse.color = variantColor;
+				grassLand.color = variantColor;
+				cornFence.color = variantColor;
+				cornFence2.color = variantColor;
+				cornBag.color = variantColor;
+				sign.color = variantColor;
+				
+				add(flatgrass);
+				add(hills);
+				add(farmHouse);
+				add(grassLand);
+				if (!FlxG.save.data.lowQ) {
+				add(cornFence);
+				sprites.add(cornFence);
+				add(cornFence2);
+				sprites.add(cornFence2);
+				add(cornBag);
+				sprites.add(cornBag);
+				add(sign);
+				sprites.add(sign);
+				}
+			case 'blackbifarm':
+				bgZoom = 0.8;
+
+				switch (bgName.toLowerCase())
+				{
+					default:
+						stageName = 'blackbiFarm';
+				}
+				
+				var bg:BGSprite = new BGSprite('bg', -600, -200, Paths.image('backgrounds/shared/sky'), null, 0.6, 0.6);
+				sprites.add(bg);
+				add(bg);
+
+				var flatgrass:BGSprite = new BGSprite('flatgrass', 350, 75, Paths.image('backgrounds/farm/gm_flatgrass'), null, 0.65, 0.65);
+				flatgrass.setGraphicSize(Std.int(flatgrass.width * 0.34));
+				flatgrass.updateHitbox();
+				sprites.add(flatgrass);
+				
+				var hills:BGSprite = new BGSprite('hills', -173, 100, Paths.image('backgrounds/farm/orangey hills'), null, 0.65, 0.65);
+				sprites.add(hills);
+				
+				var farmHouse:BGSprite = new BGSprite('farmHouse', 100, 125, Paths.image('backgrounds/blackbi/funfarmhouse', 'shared'), null, 0.7, 0.7);
+				farmHouse.setGraphicSize(Std.int(farmHouse.width * 0.9));
+				farmHouse.updateHitbox();
+				sprites.add(farmHouse);
+
+				var grassLand:BGSprite = new BGSprite('grassLand', -600, 500, Paths.image('backgrounds/blackbi//grass lands', 'shared'), null);
+				sprites.add(grassLand);
+
+				var cornFence:BGSprite = new BGSprite('cornFence', -400, 200, Paths.image('backgrounds/blackbi//cornFence', 'shared'), null);
+				
+				
+				var cornFence2:BGSprite = new BGSprite('cornFence2', 1100, 200, Paths.image('backgrounds/blackbi//cornFence2', 'shared'), null);
+				
+
+				var cornBag:BGSprite = new BGSprite('cornFence2', 1200, 550, Paths.image('backgrounds/blackbi/cornbag', 'shared'), null);
+				
+				
+				var sign:BGSprite = new BGSprite('sign', 0, 350, Paths.image('backgrounds/blackbi/sign', 'shared'), null);
 				
 
 				var variantColor:FlxColor = getBackgroundColor(stageName);
