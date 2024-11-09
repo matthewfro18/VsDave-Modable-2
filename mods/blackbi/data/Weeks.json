@@ -1,0 +1,39 @@
+{
+	  "weeks": [
+		{
+		  "songList": ["newday", "blackbi", "boring", "blackbi", "breaking-phone", "blackbi-angey"],
+		  "weekName": "",
+		  "bannerName": "",
+		}
+		{
+		  "songList": ["confronting-yourself", "blackbi"],
+		  "weekName": "",
+		  "bannerName": "",
+		}
+		{
+		  "songList": [""minused", "blackbi", "scrapped", "blackbi"minused", "blackbi", "scrapped", "blackbi"],
+		  "weekName": "Test Week",
+		  "bannerName": "testbanner",
+		}
+		{
+		  "songList": ["shredder-battle", "blackbi"],
+		  "weekName": "Test Week",
+		  "bannerName": "testbanner",
+		}
+		{
+		  "songList": ["dreams", "blackbi-joke"],
+		  "weekName": "Test Week",
+		  "bannerName": "testbanner",
+		}
+		{
+		  "songList": ["final-match", "blackbi-joke"],
+		  "weekName": "Test Week",
+		  "bannerName": "testbanner"
+		}
+		{
+		  "songList": ["darnell-blackbi-mix", "darnell"],
+		  "weekName": "Test Week",
+		  "bannerName": "testbanner"
+		}
+	  ]
+	}
